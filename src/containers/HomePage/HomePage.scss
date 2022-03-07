@@ -1,0 +1,256 @@
+//reset slick slider css
+.slick-prev{
+    border: 2px solid #d7d7d7 !important;
+    left: -15px !important;
+    z-index: 10000 !important;
+    height: 48px  !important;
+    width: 44px !important;
+    background: #fff !important;
+
+    &:hover {
+        background: #ececec !important;
+    }
+}
+.slick-prev:before,
+.slick-next:before {
+    font-family: fontAwesome !important;
+    color: red !important;
+}
+.slick-next{
+    border: 2px solid #d7d7d7 !important;
+    right: -10px !important;
+    height: 48px  !important;
+    width: 44px !important;
+    background: #fff !important;
+    &:hover {
+        background: #ececec !important;
+    }
+}
+.slick-disabled{
+    display: none !important; 
+}
+
+.section-share{
+    &.section-specialty{
+        background: #fff;
+    }
+    &.section-medical-facility{
+        background:#f5f5f5 ;
+    }
+    &.section-outstanding-doctor{
+        background: #fff;
+    }
+    &.section-handbook{
+        background:#f5f5f5 ;
+    }
+    &.section-about{
+        background:#fff ;
+        border: 1px solid red;
+        height: 470px !important;
+        
+    }
+  
+    .section-body{
+
+        .section-slide-item{
+            
+            .bg-image{
+                width: 278px;
+                height: 150px;
+                background-size: cover !important;
+                background-position: center center ;
+                background-repeat: no-repeat ;
+                background-color: #eeee ;
+
+                &.section-specialty{
+                    background-image: url('../../assets/images/specialty/coxuongkhop.jpg') ;
+                }
+                &.section-medical-facility{
+                    background-image: url('../../assets/images/medicalfacility/benh-vien-cho-ray.jpg') ;
+                }
+                &.section-outstanding-doctor{
+                    // background-image: url('../../assets/images/outstandingdoctor/anh-dai-dien-bs.jpg') ;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    border:1px solid red;   
+                }
+                &.section-handbook{
+                    background-image: url('../../assets/images/handbook/may-do-huyet-ap-co-tay-chinh-xac-khong.jpg') ;
+
+                }
+            }
+
+
+        }
+
+        
+    }
+
+}
+
+.section-share{
+    height: 370px;
+   
+    .section-container{
+       
+        margin: 0 200px;
+        display: flex;
+        flex-direction: column;
+        .section-header{
+
+            height: 70px;
+            margin-bottom: 30px;
+            padding-top: 40px;
+
+            .tilte-section{
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .btn-section{
+                float: right;
+                display: block;
+                padding: 5px 10px;
+                border: none;
+                outline: none;
+                background: #ebebeb;
+                color: black;
+                cursor: pointer;
+                text-transform: uppercase;
+                &:hover{
+                    background: #f7d800;
+                    color: white;
+                }
+            }
+        }
+
+
+    }
+}
+
+.section-outstanding-doctor{
+    .section-slide-item{
+        padding: 5px;
+
+        .customize-boder{
+            border: 1px solid #eee;
+
+            .outer-bg{
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+            }
+            .position{
+                padding-bottom: 20px;
+            }
+          
+        }
+    }
+
+
+}
+.section-about{
+    margin: 0 200px;
+
+    .section-about-header{
+        padding: 20px 10px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .section-about-content{
+        display: flex;
+        gap: 15px;
+    }
+    .content-left{
+        width: 60%;
+    }
+    .content-right{
+        width: 100%;
+        display: list-iteminline !important;
+        display: flex;
+        justify-content: unset;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: flex-start;
+        justify-content: center;
+ 
+        
+
+        .content-img{
+            width: 100%;
+            height: 100%;
+            background-size: cover !important;
+            background-position: center center ;
+            background-repeat: no-repeat ;
+             
+
+
+            &.suckhoedoisong{
+                background-image: url('../../assets/images/socialmedia/suckhoedoisong.png')  !important;
+                width: 162px;
+                height: 50px;
+                background-size: 142px 30px!important;
+
+            }
+             &.vtv1{
+                background-image: url('../../assets/images/socialmedia/vtv1.png')  !important;
+                width: 106px;
+                height: 50px;
+                background-size: 86px 30px !important;
+            }
+            &.ictnews{
+                background-image: url('../../assets/images/socialmedia/ictnews.png')  !important;
+                width: 127px;
+                height: 50px;
+                background-size: 107px 30px  !important;
+            }
+            &.vnexpress{
+                background-image: url('../../assets/images/socialmedia/vnexpress.png')  !important;
+                width: 183px;
+                height: 50px;
+                background-size: 163px 30px !important;
+            }
+            &.vtcnews{
+                background-image: url('../../assets/images/socialmedia/vtcnews.png')  !important;
+                width: 151px;
+                height: 50px;
+                background-size: 131px 30px !important;
+                background-color: #a3171e;
+                display: inline-block;
+                border-radius: 5px;
+            
+            }
+            &.boyte{
+                background-image: url('../../assets/images/socialmedia/cuc-cong-nghe-thong-tin-bo-y-te-2.png')  !important;
+                width: 127px;
+                height: 50px;
+                background-size: 107px 40px !important;
+            }
+            &.infonet{
+                background-image: url('../../assets/images/socialmedia/infonet.png')  !important;
+                width: 129px;
+                height: 50px;
+                background-size: 109px 30px !important;
+            }
+            &.vtc{
+                background-image: url('../../assets/images/socialmedia/vtcgo.png')  !important;
+                width: 96px;
+                height: 50px;
+                background-size: 76px 25px !important;
+                background-color: #16325C !important;
+                display: inline-block;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+ 
+.home-footer{
+    text-align: center;
+    padding-top: 10px;
+
+    a{
+        text-decoration: unset;
+    }
+}
