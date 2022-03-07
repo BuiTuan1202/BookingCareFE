@@ -2,7 +2,7 @@ import actionTypes from './actionTypes';
 import {
     getAllcodeService, createNewUserService,
     getAllUsers, deleteUserService, editUserService,
-    getTopDoctorHomeService
+    getTopDoctorHomeService,getAllDoctorSevice, saveInforDoctorSevice
 } from '../../services/userService'
 import { toast } from 'react-toastify';
 //get gender
@@ -247,4 +247,62 @@ export const fetchTopDoctor =()=>{
     }
 }
 
+//get all doctor
+export const fetchAllDoctor =()=>{
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllDoctorSevice('')
+            if(res && res.errCode===0){
+                dispatch({
+                    type:actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+                    dataAllDoctor:res.data
+                })
+            }
+            else{
+                dispatch({
+                    type:actionTypes.FETCH_ALL_DOCTOR_FAIL,
+                })
+            }
+        }
+        catch (e) {
+            console.log(e);
+            dispatch({
+                type:actionTypes.FETCH_ALL_DOCTOR_FAIL,
+            })
+
+        }
+    }
+}
+
+
+//get save detail doctor
+export const saveDetailDoctor =(data)=>{
+    return async (dispatch, getState) => {
+        try {
+            let res = await saveInforDoctorSevice(data);
+            console.log("check data", res);
+            if(res && res.errCode===0){
+                toast.success('save infor detail doctor succsess');
+                dispatch({
+                    type:actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
+                   
+                })
+            }
+            else{
+                toast.success('save infor detail doctor fail');
+                dispatch({
+                    type:actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
+                })
+            }
+        }
+        catch (e) {
+            console.log(e);
+            toast.success('save infor detail doctor fail');
+            dispatch({
+                type:actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
+            })
+
+        }
+    }
+}
 

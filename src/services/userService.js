@@ -1,3 +1,4 @@
+import { data } from 'jquery';
 import axios from '../axios'
 const handleLoginApi = (email, password) =>{
     return axios.post('/api/login', {email :email, password: password});
@@ -25,7 +26,14 @@ const getAllcodeService = (inputType) =>{
 const getTopDoctorHomeService = (limit) =>{
     return axios.get(`/api/get-top-doctor-home?limit=${limit}`);
 }
+const getAllDoctorSevice= () =>{
+    return axios.get(`/api/get-all-doctor`);
+}
+const saveInforDoctorSevice= (data) =>{
+    return axios.post(`/api/save-infor-doctor`,data);
+}
 export {handleLoginApi, getAllUsers,
      createNewUserService, deleteUserService,
      editUserService, getAllcodeService,
-     getTopDoctorHomeService}
+     getTopDoctorHomeService, getAllDoctorSevice,
+     saveInforDoctorSevice,}
