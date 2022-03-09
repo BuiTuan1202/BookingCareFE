@@ -44,8 +44,8 @@ class Login extends Component {
 
             }
             if (data && data.errCode === 0) {
-              this.props.userLoginSuccess(data.user)
-               
+                this.props.userLoginSuccess(data.user)
+
             }
         } catch (error) {
             if (error.response) {
@@ -60,10 +60,15 @@ class Login extends Component {
 
     }
 
-    handleShowHidePasswors = () => {
+    handleShowHidePasswords = () => {
         this.setState({
             isShowPassword: !this.state.isShowPassword,
         })
+    }
+    handleKeyDown = (e) => {
+        if (e.key === "Enter" || e.key.code === 13) {
+            this.handleLogin();
+        }
     }
     render() {
 
@@ -90,10 +95,13 @@ class Login extends Component {
                                     type={this.state.isShowPassword ? 'text' : 'password'}
                                     placeholder='Enter your password'
                                     value={this.state.password}
-                                    onChange={(event) => this.handleOnChangePassword(event)}>
+                                    onChange={(event) => this.handleOnChangePassword(event)}
+                                    onKeyDown={(event) => this.handleKeyDown(event)}
+                                >
+
                                 </input>
                                 <span
-                                    onClick={() => { this.handleShowHidePasswors() }}
+                                    onClick={() => { this.handleShowHidePasswords() }}
                                 ><i className={this.state.isShowPassword ? 'fas fa-eye' : 'fas fa-eye-slash'} ></i></span>
 
 
@@ -135,7 +143,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
-        userLoginSuccess: (userInfo)=> dispatch(actions.userLoginSuccess(userInfo)),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo)),
     };
 };
 

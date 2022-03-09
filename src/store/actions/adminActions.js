@@ -2,7 +2,7 @@ import actionTypes from './actionTypes';
 import {
     getAllcodeService, createNewUserService,
     getAllUsers, deleteUserService, editUserService,
-    getTopDoctorHomeService,getAllDoctorSevice, saveInforDoctorSevice
+    getTopDoctorHomeService, getAllDoctorSevice, saveInforDoctorSevice
 } from '../../services/userService'
 import { toast } from 'react-toastify';
 //get gender
@@ -220,26 +220,26 @@ export const editUserFail = () => ({
 })
 
 //get top doctor
-export const fetchTopDoctor =()=>{
+export const fetchTopDoctor = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getTopDoctorHomeService('')
-            if(res && res.errCode===0){
+            if (res && res.errCode === 0) {
                 dispatch({
-                    type:actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
-                    dataDoctor:res.data
+                    type: actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
+                    dataDoctor: res.data
                 })
             }
-            else{
+            else {
                 dispatch({
-                    type:actionTypes.FETCH_TOP_DOCTOR_FAIL,
+                    type: actionTypes.FETCH_TOP_DOCTOR_FAIL,
                 })
             }
         }
         catch (e) {
             console.log(e);
             dispatch({
-                type:actionTypes.FETCH_TOP_DOCTOR_FAIL,
+                type: actionTypes.FETCH_TOP_DOCTOR_FAIL,
             })
 
         }
@@ -247,26 +247,26 @@ export const fetchTopDoctor =()=>{
 }
 
 //get all doctor
-export const fetchAllDoctor =()=>{
+export const fetchAllDoctor = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getAllDoctorSevice('')
-            if(res && res.errCode===0){
+            if (res && res.errCode === 0) {
                 dispatch({
-                    type:actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
-                    dataAllDoctor:res.data
+                    type: actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+                    dataAllDoctor: res.data
                 })
             }
-            else{
+            else {
                 dispatch({
-                    type:actionTypes.FETCH_ALL_DOCTOR_FAIL,
+                    type: actionTypes.FETCH_ALL_DOCTOR_FAIL,
                 })
             }
         }
         catch (e) {
             console.log(e);
             dispatch({
-                type:actionTypes.FETCH_ALL_DOCTOR_FAIL,
+                type: actionTypes.FETCH_ALL_DOCTOR_FAIL,
             })
 
         }
@@ -275,21 +275,21 @@ export const fetchAllDoctor =()=>{
 
 
 //get save detail doctor
-export const saveDetailDoctor =(data)=>{
+export const saveDetailDoctor = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await saveInforDoctorSevice(data);
-            if(res && res.errCode===0){
+            if (res && res.errCode === 0) {
                 toast.success('save infor detail doctor succsess');
                 dispatch({
-                    type:actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
-                   
+                    type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
+
                 })
             }
-            else{
+            else {
                 toast.success('save infor detail doctor fail');
                 dispatch({
-                    type:actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
+                    type: actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
                 })
             }
         }
@@ -297,7 +297,34 @@ export const saveDetailDoctor =(data)=>{
             console.log(e);
             toast.success('save infor detail doctor fail');
             dispatch({
-                type:actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
+                type: actionTypes.SAVE_DETAIL_DOCTOR_FAIL,
+            })
+
+        }
+    }
+}
+
+//get all doctor
+export const fetchAllCodeScheduleTime = (type) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllcodeService('TIME')
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_ALCODE_SCHEDULE_TIME_FAIL,
+                })
+            }
+        }
+        catch (e) {
+            console.log(e);
+            dispatch({
+                type: actionTypes.FETCH_ALCODE_SCHEDULE_TIME_FAIL,
             })
 
         }
