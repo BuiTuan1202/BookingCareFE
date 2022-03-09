@@ -1,39 +1,43 @@
-import { data } from 'jquery';
 import axios from '../axios'
-const handleLoginApi = (email, password) =>{
-    return axios.post('/api/login', {email :email, password: password});
+const handleLoginApi = (email, password) => {
+    return axios.post('/api/login', { email: email, password: password });
 
 }
-const getAllUsers = (id) =>{
+const getAllUsers = (id) => {
     return axios.get(`/api/get-all-users?id=${id}`);
 }
-const createNewUserService = (data)=>{
+const createNewUserService = (data) => {
     return axios.post(`/api/create-new-user`, data);
 }
-const deleteUserService = (userId)=>{
+const deleteUserService = (userId) => {
     return axios.delete(`/api/delete-user`, {
         data: {
-          id: userId
+            id: userId
         }
-      });
+    });
 }
-const editUserService = (inputData)=>{
+const editUserService = (inputData) => {
     return axios.put(`/api/edit-user`, inputData);
 }
-const getAllcodeService = (inputType) =>{
+const getAllcodeService = (inputType) => {
     return axios.get(`/api/get-allcode?type=${inputType}`);
 }
-const getTopDoctorHomeService = (limit) =>{
+const getTopDoctorHomeService = (limit) => {
     return axios.get(`/api/get-top-doctor-home?limit=${limit}`);
 }
-const getAllDoctorSevice= () =>{
+const getAllDoctorSevice = () => {
     return axios.get(`/api/get-all-doctor`);
 }
-const saveInforDoctorSevice= (data) =>{
-    return axios.post(`/api/save-infor-doctor`,data);
+const saveInforDoctorSevice = (data) => {
+    return axios.post(`/api/save-infor-doctor`, data);
 }
-export {handleLoginApi, getAllUsers,
-     createNewUserService, deleteUserService,
-     editUserService, getAllcodeService,
-     getTopDoctorHomeService, getAllDoctorSevice,
-     saveInforDoctorSevice,}
+const getDetailInforDotor = (inputid) => {
+    return axios.get(`/api/get-detail-doctor?id=${inputid}`);
+}
+export {
+    handleLoginApi, getAllUsers,
+    createNewUserService, deleteUserService,
+    editUserService, getAllcodeService,
+    getTopDoctorHomeService, getAllDoctorSevice,
+    saveInforDoctorSevice, getDetailInforDotor,
+}

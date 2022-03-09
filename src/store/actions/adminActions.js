@@ -224,7 +224,6 @@ export const fetchTopDoctor =()=>{
     return async (dispatch, getState) => {
         try {
             let res = await getTopDoctorHomeService('')
-            console.log("check res", res);
             if(res && res.errCode===0){
                 dispatch({
                     type:actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
@@ -280,7 +279,6 @@ export const saveDetailDoctor =(data)=>{
     return async (dispatch, getState) => {
         try {
             let res = await saveInforDoctorSevice(data);
-            console.log("check data", res);
             if(res && res.errCode===0){
                 toast.success('save infor detail doctor succsess');
                 dispatch({
