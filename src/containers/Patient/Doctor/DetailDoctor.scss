@@ -4,6 +4,7 @@
 
     .intro-doctor {
         display: flex;
+        padding: 0 100px;
 
         .content-left {
             width: 20%;
@@ -33,6 +34,26 @@
                 padding-top : 10px;
                 padding-left: 10px;
             }
+        }
+    }
+
+    .schedule-doctor {
+
+        display   : flex;
+        min-height: 200px;
+
+        padding: 10px 100px;
+
+        .content-left {
+            width       : 50%;
+            border-right: 1px solid #eee;
+
+
+        }
+
+        .content-right {
+            width: 50%;
+
         }
     }
 

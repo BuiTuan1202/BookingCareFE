@@ -129,12 +129,17 @@ class ManageSchedule extends Component {
             date: formateDate,
 
         })
-        console.log("check res save schedule: ", res);
+        if (res && res.errCode === 0) {
+            toast.success('create schedule success');
+        } else {
+            toast.error('create schedule error');
+        }
     }
     render() {
 
         let { rangeTime } = this.state;
         let { language } = this.props;
+        let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
         return (
             <div className='manage-schedule-container'>
                 <div className='m-s-title'><FormattedMessage id='manage-schedule.title' /></div>
@@ -156,7 +161,7 @@ class ManageSchedule extends Component {
                                 className='form-control'
                                 // value={this.state.currentDate}
                                 value={this.state.currentDate}
-                                minDate={new Date()}
+                                minDate={yesterday}
                             />
                         </div>
                         <div className='col-12 pick-hour-container'>
