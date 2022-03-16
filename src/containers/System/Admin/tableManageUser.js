@@ -3,21 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './tableManageUser.scss';
 import * as actions from '../../../store/actions'
-import MarkdownIt from 'markdown-it';
-import MdEditor from 'react-markdown-editor-lite';
-// import style manually
-import 'react-markdown-editor-lite/lib/index.css';
 
-// Register plugins if required
-// MdEditor.use(YOUR_PLUGINS_HERE);
-
-// Initialize a markdown parser
-const mdParser = new MarkdownIt(/* Markdown-it options */);
-
-// Finish!
-function handleEditorChange({ html, text }) {
-  console.log('handleEditorChange', html, text);
-}
 
 
 
@@ -25,10 +11,10 @@ class tableManageUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userRedux:[]
+            userRedux: []
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchUserRedux();
     }
 
@@ -40,12 +26,12 @@ class tableManageUser extends Component {
         }
     }
 
-    handleDeleteUser = (user) =>{
+    handleDeleteUser = (user) => {
         this.props.deleteUserRedux(user.id)
-        
+
     }
 
-    handleEditUser= (user)=>{
+    handleEditUser = (user) => {
         this.props.handlEditUserFromParentkey(user)
     }
 
@@ -55,47 +41,47 @@ class tableManageUser extends Component {
         return (
             <React.Fragment>
                 <table id='tableManageUser'>
-                <tbody>
-                    <tr>
-                        <th>Email</th>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Address</th>
-                        <th>Action</th>
-                    </tr>
-
-                    {arrUser && arrUser.length>0 &&
-                    arrUser.map((item, index) =>{
-                        return(
-                            <tr key={index} >
-                            <td>{item.email}</td>
-                            <td>{item.firstName}</td>
-                            <td>{item.lastName}</td>
-                            <td>{item.address}</td>
-                            <td>
-                                <button className='btn-edit' 
-                                onClick={()=> this.handleEditUser(item)}
-                                ><i className="fas fa-pencil-alt"></i></button>
-                                <button className='btn-delete'
-                                onClick={()=> this.handleDeleteUser(item)}
-                                ><i className="fas fa-trash"></i></button>
-    
-                            </td>
+                    <tbody>
+                        <tr>
+                            <th>Email</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Address</th>
+                            <th>Action</th>
                         </tr>
 
-                        )
-                    })
-                    }
+                        {arrUser && arrUser.length > 0 &&
+                            arrUser.map((item, index) => {
+                                return (
+                                    <tr key={index} >
+                                        <td>{item.email}</td>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.address}</td>
+                                        <td>
+                                            <button className='btn-edit'
+                                                onClick={() => this.handleEditUser(item)}
+                                            ><i className="fas fa-pencil-alt"></i></button>
+                                            <button className='btn-delete'
+                                                onClick={() => this.handleDeleteUser(item)}
+                                            ><i className="fas fa-trash"></i></button>
+
+                                        </td>
+                                    </tr>
+
+                                )
+                            })
+                        }
 
 
 
 
 
-                </tbody>
-            </table>
-             <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+                    </tbody>
+                </table>
+
             </React.Fragment>
-            
+
         );
     }
 

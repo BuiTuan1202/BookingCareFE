@@ -34,9 +34,17 @@ class DoctorSchedule extends Component {
             })
         }
     }
-    componentDidMount() {
+    async componentDidMount() {
         let { language } = this.props;
         let allDays = this.getArrDays(language);
+        if (this.props.doctorIdFromParent) {
+
+            let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
+            this.setState({
+                allAvailableTime: res.data ? res.data : []
+
+            })
+        }
         this.setState({
             allDays: allDays,
         })
@@ -152,7 +160,7 @@ class DoctorSchedule extends Component {
                                     <div className='book-free'>
                                         <span>
                                             <FormattedMessage id="patient.detail-doctor.choose" />
-                                            <i class="fas fa-hand-point-up"></i>
+                                            <i className="fas fa-hand-point-up"></i>
                                             <FormattedMessage id="patient.detail-doctor.book-free" />
                                         </span>
                                     </div>

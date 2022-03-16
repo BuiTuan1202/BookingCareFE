@@ -142,13 +142,13 @@ class BookingModal extends Component {
         } else {
             toast.error('Booking a new appointment fail');
         }
-        console.log('check state', this.state);
+
     }
 
     render() {
         let { isOpenModal, closeBookingModal, dataTime } = this.props;
         let doctorId = dataTime && !_.isEmpty({ dataTime }) ? dataTime.doctorId : '';
-        console.log('check data time', dataTime);
+
         return (
             <Modal
                 isOpen={isOpenModal}
@@ -173,6 +173,8 @@ class BookingModal extends Component {
                                 doctorId={doctorId}
                                 isShowDescriptionDoctor={false}
                                 dataTime={dataTime}
+                                isShowLinkDetail={false}
+                                isShowPrice={true}
                             />
                         </div>
                         <div className="row">
