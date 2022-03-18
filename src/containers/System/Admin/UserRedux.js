@@ -98,7 +98,7 @@ class UserRedux extends Component {
                 position: arrPositionRedux && arrPositionRedux.length > 0 ? arrPositionRedux[0].keyMap : '',
                 avatar: '',
                 action: CRUD_Actions.CREATE,
-                previewImgUrl:'',
+                previewImgUrl: '',
             })
         }
     }
@@ -108,7 +108,6 @@ class UserRedux extends Component {
         let file = data[0];
         if (file) {
             let base64 = await CommonUtils.getBase64(file);
-            console.log('check file base64', base64);
             let ObjectUrl = URL.createObjectURL(file);
             this.setState({
                 previewImgUrl: ObjectUrl,
@@ -189,10 +188,10 @@ class UserRedux extends Component {
     }
 
     handlEditUserFromParent = (user) => {
-        let imageBase64=''
-        if(user.image){
-            imageBase64 = new Buffer(user.image,'base64').toString('binary')
-            
+        let imageBase64 = ''
+        if (user.image) {
+            imageBase64 = new Buffer.from(user.image, 'base64').toString('binary')
+
             // setImage(imageBase64)
         }
 

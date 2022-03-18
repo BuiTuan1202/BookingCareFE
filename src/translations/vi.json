@@ -50,10 +50,12 @@
             "specialty": "Chuyên khoa",
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
-            "manage-handbook": "Quản Lý cẩm nang"
+            "manage-handbook": "Quản Lý cẩm nang",
+            "doctor-manager": "Bác sĩ quản lý"
         },
         "doctor": {
-            "manage-schedule": "Quản lý Kế hoạch khám bệnh"
+            "manage-schedule": "Quản lý Kế hoạch khám bệnh",
+            "manage-patient": "Quản lý bệnh nhân"
         }
     },
     "manage-user": {
